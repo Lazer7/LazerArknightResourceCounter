@@ -1,0 +1,142 @@
+:root {
+    --primary: #1565c0;
+    --light: #5e92f3;
+    --dark: #003c8f;
+    --altwhite: #F5F5F5;
+    --navbuttoncolor: #20262e;
+}
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    min-height: 100vh;
+    background-color: var(--altwhite);
+    margin: 0 !important;
+}
+
+.image-75 {
+    width: 75%;
+}
+
+.image-50 {
+    width: 50%;
+}
+
+.image-25 {
+    width: 25%;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: #FFFFFF;
+}
+
+.router {
+    margin: 1px;
+}
+
+.p-menubar {
+    border-radius: 0px !important;
+}
+
+.p-menubar .p-menubar-button {
+    display: none;
+}
+
+.p-menubar .p-button {
+    background-color: var(--navbuttoncolor);
+    color: white;
+}
+
+.p-menubar img {
+    margin-bottom: -9px;
+    width: 30px;
+}
+
+.p-menu {
+    border-radius: 0px !important;
+    border: 0;
+    border-right: 5px solid var(--navbuttoncolor);
+    position: relative;
+    min-height: 100vh;
+    color: var(--dark);
+    background-color: white;
+}
+
+
+.p-menu .p-submenu-header,
+.p-menuitem,
+.p-menuitem-text {
+    text-align: left;
+    color: var(--dark) !important;
+    background: white;
+}
+
+.p-datatable-tbody img {
+    width: 28px;
+    margin-bottom: -9px;
+    margin-right: 10px;
+}
+
+/* 
+.navbar {
+    background-color: var(--primary) !important;
+    color: white;
+}
+
+.navbar div,
+.navbar a {
+    color: white;
+}
+
+.dropdown-content {
+    z-index: 10;
+}
+
+a.dropdown-item {
+    color: var(--primary);
+}
+
+.menu {
+    padding-top: 1.5%;
+    padding-left: 2.5%;
+    background-color: white;
+    color: white;
+    text-align: left;
+    position: relative;
+    min-height: 100vh;
+}
+
+.menu a.is-active {
+    background-color: var(--light);
+}
+
+.column {
+    margin: 0;
+}
+
+.main,
+.padding {
+    padding: 2%;
+}
+
+.b-table .table td {
+    text-align: left !important;
+} */
+
+.is-hidden {
+    display: none;
+}
+
+.position-container {
+    position: relative;
+}
+
+.position-top-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
