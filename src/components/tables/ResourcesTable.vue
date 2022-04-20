@@ -68,13 +68,17 @@
           </template>
         </ColumnComponent>
         <ColumnComponent
-          field="efficiency"
-          header="Efficiency"
+          field="stageSanity"
+          header="Sanity per Run"
           :sortable="true"
           style="min-width: 12rem"
         >
           <template #body="slotProps">
-            <span> {{ slotProps.data.efficiency }} % </span>
+            <span>
+              {{
+                slotProps.data.stageSanity >= 0 ? slotProps.data.stageSanity : 0
+              }}
+            </span>
           </template>
         </ColumnComponent>
         <ColumnComponent

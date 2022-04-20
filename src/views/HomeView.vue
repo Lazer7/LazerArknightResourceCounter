@@ -284,7 +284,7 @@ export default {
             drops: drops,
             stageId: stage.stageId,
             server: this.$store.getters["UserData/currentServer"],
-            source: "Lazer's Arknight Resource Counter",
+            source: "Lazer Client",
             version: "0.1",
           },
           this.$store.getters["UserData/PenguinID"]

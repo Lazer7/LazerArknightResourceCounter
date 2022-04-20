@@ -60,6 +60,12 @@ export default {
       );
     },
   },
+  watch: {
+    async selectedResource() {
+      await this.loadData();
+      await this.loadChart();
+    },
+  },
   methods: {
     setValue(item) {
       this.selectedResource = item;
