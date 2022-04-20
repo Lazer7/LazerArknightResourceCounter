@@ -32,6 +32,7 @@ import Row from "primevue/row";
 import Tag from "primevue/tag";
 import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
+import Skeleton from "primevue/skeleton";
 
 const app = createApp(App);
 
@@ -57,6 +58,7 @@ app.component("ColumnGroup", ColumnGroup);
 app.component("RowComponent", Row);
 app.component("TagComponent", Tag);
 app.component("Toast", Toast);
+app.component("Skeleton", Skeleton);
 
 app.directive("badge", BadgeDirective);
 

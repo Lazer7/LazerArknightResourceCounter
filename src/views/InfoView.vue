@@ -69,7 +69,7 @@
       <div class="col-12 md:col-6">
         <section>
           <Card class="primary">
-            <template #title> License </template>
+            <template #title> Donate </template>
             <template #content>
               This tool was made by your local friendly Software Engineer -
               Lazer7! Donations for coffee would be greatly appreciated! <br />

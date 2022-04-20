@@ -81,51 +81,9 @@ body {
     margin-right: 10px;
 }
 
-/* 
-.navbar {
-    background-color: var(--primary) !important;
+.p-card-content a, .p-card-content .p-button {
     color: white;
 }
-
-.navbar div,
-.navbar a {
-    color: white;
-}
-
-.dropdown-content {
-    z-index: 10;
-}
-
-a.dropdown-item {
-    color: var(--primary);
-}
-
-.menu {
-    padding-top: 1.5%;
-    padding-left: 2.5%;
-    background-color: white;
-    color: white;
-    text-align: left;
-    position: relative;
-    min-height: 100vh;
-}
-
-.menu a.is-active {
-    background-color: var(--light);
-}
-
-.column {
-    margin: 0;
-}
-
-.main,
-.padding {
-    padding: 2%;
-}
-
-.b-table .table td {
-    text-align: left !important;
-} */
 
 .is-hidden {
     display: none;
