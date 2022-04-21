@@ -3,7 +3,7 @@
     <Toast />
     <Navbar />
     <div class="grid router">
-      <Menu class="col-12 md:col-4 lg:col-2" />
+      <Menu class="col-12 lg:col-2" />
       <router-view class="col main" />
     </div>
   </div>
