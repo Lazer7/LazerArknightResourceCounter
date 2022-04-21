@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-    <h1 class="title is-1 has-text-left">User Data Sheet</h1>
+    <h1 class="title is-1 text-left">User Data Sheet</h1>
     <div class="grid">
       <div class="col-12">
         <Card>

@@ -1,5 +1,5 @@
 <template>
-  <MenuComponent :model="items" :class="isHidden" />
+  <MenuComponent :model="items" :class="isHidden + ' ' + isOverlay" />
 </template>
 
 <script>
@@ -58,12 +58,19 @@ export default {
           ],
         },
       ],
+      menuOverlay: false,
     };
   },
   computed: {
     isHidden() {
       return this.$store.state.MenuState.hidden ? "is-hidden" : "";
     },
+    isOverlay() {
+      return this.menuOverlay ? "overlay" : "";
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", this.reportWindowSize);
   },
   methods: {
     navigateToHome() {
@@ -86,6 +93,10 @@ export default {
     },
     isActive(name) {
       return this.$route.name === name;
+    },
+    reportWindowSize() {
+      this.$store.dispatch("MenuState/hideMenu", window.innerWidth <= 1490);
+      this.menuOverlay = window.innerWidth <= 1490 && window.innerWidth >= 950;
     },
   },
 };
