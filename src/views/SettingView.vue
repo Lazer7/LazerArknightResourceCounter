@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-    <h1 class="title is-1 has-text-left">Settings</h1>
+    <h1 class="title is-1 text-left">Settings</h1>
     Work in Progress <br />
     <div class="grid">
       <div class="col-12">

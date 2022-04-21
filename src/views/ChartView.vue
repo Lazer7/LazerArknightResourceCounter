@@ -1,6 +1,6 @@
 <template>
   <div class="chart">
-    <h1 class="title is-1 has-text-left">Resource Charts</h1>
+    <h1 class="title is-1 text-left">Resource Charts</h1>
     <div class="grid">
       <div class="col">
         <Card>

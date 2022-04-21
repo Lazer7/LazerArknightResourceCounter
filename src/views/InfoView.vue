@@ -1,8 +1,6 @@
 <template>
   <div class="info">
-    <h1 class="title is-1 has-text-left">
-      Welcome to Arknight Resource Counter
-    </h1>
+    <h1 class="title is-1 text-left">Welcome to Arknight Resource Counter</h1>
     <div class="grid">
       <div class="col-12 md:col-6">
         <section>

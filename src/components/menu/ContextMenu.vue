@@ -95,7 +95,6 @@ export default {
       return this.$route.name === name;
     },
     reportWindowSize() {
-      console.log(window.innerWidth);
       this.$store.dispatch("MenuState/hideMenu", window.innerWidth <= 1490);
       this.menuOverlay = window.innerWidth <= 1490 && window.innerWidth >= 950;
     },
