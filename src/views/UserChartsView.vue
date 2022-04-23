@@ -8,7 +8,7 @@
             <h3 class="title is-3">Resources Gathered</h3>
           </template>
           <template #content>
-            <ResourcePieChart :userData="userData" :loading="isLoading" />
+            <UserResourceTable :userData="userData" :loading="isLoading" />
           </template>
         </Card>
       </div>
@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import ResourcePieChart from "@/components/charts/UserResourceChart.vue";
-import { DataUtil } from "@/services/dataUtil.js";
+import UserResourceTable from "@/components/tables/UserResourceTable.vue";
+import { DataUtil } from "@/utils/dataUtil.js";
 
 export default {
   name: "DropTableView",
   components: {
-    ResourcePieChart,
+    UserResourceTable,
   },
   data() {
     return {

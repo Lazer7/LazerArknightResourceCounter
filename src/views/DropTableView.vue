@@ -7,7 +7,7 @@
 
 <script>
 import Table from "@/components/tables/ResourcesTable.vue";
-import { DataUtil } from "@/services/dataUtil";
+import { DataUtil } from "@/utils/dataUtil";
 
 export default {
   name: "DropTableView",
