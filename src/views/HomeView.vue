@@ -161,7 +161,7 @@
 
 <script>
 import Table from "@/components/tables/ResourcesTable.vue";
-import { DataUtil } from "@/services/dataUtil";
+import { DataUtil } from "@/utils/dataUtil";
 import { PenguinService } from "@/services/penguinService";
 
 export default {

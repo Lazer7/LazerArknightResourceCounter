@@ -18,7 +18,7 @@
 
 <script>
 import ResourcePieChart from "@/components/charts/UserResourceChart.vue";
-import { DataUtil } from "@/services/dataUtil.js";
+import { DataUtil } from "@/utils/dataUtil.js";
 
 export default {
   name: "DropTableView",

@@ -29,7 +29,7 @@
 <script>
 import Chart from "chart.js/auto";
 import randomColor from "random-color";
-import { DataUtil } from "@/services/dataUtil.js";
+import { DataUtil } from "@/utils/dataUtil.js";
 
 export default {
   name: "DropTableView",
