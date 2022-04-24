@@ -28,8 +28,13 @@ const routes = [
     component: () => import("../views/SettingView.vue"),
   },
   {
+    path: "/UserResources",
+    name: "userResources",
+    component: () => import("../views/UserResourceView.vue"),
+  },
+  {
     path: "/UserCharts",
-    name: "usercharts",
+    name: "userCharts",
     component: () => import("../views/UserChartsView.vue"),
   },
 ];

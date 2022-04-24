@@ -1,12 +1,12 @@
 <template>
-  <div class="resourcestagepiechart">
+  <div class="stagepiechart">
     <div v-if="loading">
       <Skeleton class="mb-2"></Skeleton>
       <Skeleton class="mb-2"></Skeleton>
       <Skeleton class="mb-2"></Skeleton>
       <Skeleton height="20rem" class="mb-2"></Skeleton>
     </div>
-    <canvas v-else id="resourceStagePieChart"></canvas>
+    <canvas v-else id="stagePieChart"></canvas>
   </div>
 </template>
 
@@ -39,62 +39,39 @@ export default {
       this.colors = [];
       this.userData.forEach((userData) => {
         var itemData = dataMatrix.find(
-          (data) => data.itemId == userData.itemId
+          (data) => data.stageId == userData.stageId
         );
         if (!itemData) {
           dataMatrix.push({
-            itemId: userData.itemId,
-            quantity: userData.quantity,
+            stageId: userData.stageId,
+            times: userData.times,
           });
-        } else {
-          itemData.quantity += userData.quantity;
         }
       });
-      dataMatrix = dataMatrix.filter((data) => data.quantity !== 0);
       dataMatrix.forEach((data) => {
-        this.labels.push(data.itemId);
-        this.values.push(data.quantity);
+        this.labels.push(data.stageId);
+        this.values.push(data.times);
         this.colors.push(randomColor().hexString());
       });
     },
     loadChart() {
-      const ctx = document
-        .getElementById("resourceStagePieChart")
-        .getContext("2d");
+      const ctx = document.getElementById("stagePieChart").getContext("2d");
       if (this.chart) {
         this.chart.destroy();
       }
       this.chart = new Chart(ctx, {
-        type: "bar",
+        type: "pie",
         data: {
           labels: this.labels,
           datasets: [
             {
+              label: "Stages",
               data: this.values,
               backgroundColor: this.colors,
               borderColor: this.colors,
               borderWidth: 1,
             },
           ],
-        },
-        options: {
-          scales: {
-            x: {
-              ticks: {
-                color: "white",
-              },
-            },
-            y: {
-              ticks: {
-                color: "white",
-              },
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
         },
       });
     },
