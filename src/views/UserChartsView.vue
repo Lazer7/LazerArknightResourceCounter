@@ -51,18 +51,26 @@
           </template>
         </Card>
       </div>
+      <div class="col-12 lg:col-4">
+        <Card>
+          <template #title> Stages Reported </template>
+          <template #content>
+            <UserStageChart :userData="userData" :loading="isLoading" />
+          </template>
+        </Card>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import UserResourceChart from "@/components/tables/UserResourceChart.vue";
+import UserStageChart from "@/components/charts/UserStageChart.vue";
 import { DataUtil } from "@/utils/dataUtil.js";
 
 export default {
   name: "DropTableView",
   components: {
-    // UserResourceChart,
+    UserStageChart,
   },
   data() {
     return {
