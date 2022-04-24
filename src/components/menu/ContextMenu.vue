@@ -26,7 +26,12 @@ export default {
               command: this.navigateToHome,
             },
             {
-              label: "User Charts",
+              label: "Resources Recorded",
+              icon: "pi pi-upload",
+              command: this.navigateToUserResources,
+            },
+            {
+              label: "Charts",
               icon: "pi pi-upload",
               command: this.navigateToUserCharts,
             },
@@ -78,6 +83,9 @@ export default {
     },
     navigateToUserCharts() {
       this.$router.push("/UserCharts");
+    },
+    navigateToUserResources() {
+      this.$router.push("/UserResources");
     },
     navigateToInfo() {
       this.$router.push("/Info");
