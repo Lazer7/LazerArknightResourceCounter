@@ -34,6 +34,7 @@ import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 import Skeleton from "primevue/skeleton";
 import ProgressSpinner from "primevue/progressspinner";
+import ScrollPanel from "primevue/scrollpanel";
 
 const app = createApp(App);
 
@@ -61,6 +62,7 @@ app.component("TagComponent", Tag);
 app.component("Toast", Toast);
 app.component("Skeleton", Skeleton);
 app.component("ProgressSpinner", ProgressSpinner);
+app.component("ScrollPanel", ScrollPanel);
 
 app.directive("badge", BadgeDirective);
 

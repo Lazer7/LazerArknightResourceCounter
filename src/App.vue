@@ -4,7 +4,11 @@
     <Navbar />
     <div class="grid router">
       <Menu class="col-12 lg:col-2" />
-      <router-view class="col main" />
+      <div id="main-container" class="col main">
+        <div :class="mask ? 'container-mask' : ''">
+          <router-view />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +21,12 @@ export default {
   components: {
     Navbar,
     Menu,
+  },
+  computed: {
+    mask() {
+      var menuState = this.$store.getters["MenuState/hidden"];
+      return window.innerWidth <= 1542 && !menuState;
+    },
   },
 };
 </script>
