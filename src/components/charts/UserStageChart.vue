@@ -6,7 +6,7 @@
       <Skeleton class="mb-2"></Skeleton>
       <Skeleton height="20rem" class="mb-2"></Skeleton>
     </div>
-    <canvas v-else id="stagePieChart"></canvas>
+    <canvas v-else id="stagePieChart" class="canvas"></canvas>
   </div>
 </template>
 

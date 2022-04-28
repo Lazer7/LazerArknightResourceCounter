@@ -6,12 +6,17 @@
     --navbuttoncolor: #20262e;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    height: 100%;
     min-height: 100vh;
     background-color: var(--altwhite);
     margin: 0 !important;
@@ -34,12 +39,18 @@ body {
     color: #FFFFFF;
 }
 
+.main {
+    padding-right: 0;
+    padding-top: 0;
+}
+
 .router {
-    margin: 1px;
+    margin: 0 1px;
 }
 
 .p-menubar {
     border-radius: 0px !important;
+    height: 60px;
 }
 
 .p-menubar .p-menubar-button {
@@ -61,7 +72,7 @@ body {
     border: 0;
     border-right: 5px solid var(--navbuttoncolor);
     position: relative;
-    min-height: 100vh;
+    height: calc(100vh - 60px);
     color: var(--dark);
     background-color: white;
 }
@@ -81,7 +92,8 @@ body {
     margin-right: 10px;
 }
 
-.p-card-content a, .p-card-content .p-button {
+.p-card-content a,
+.p-card-content .p-button {
     color: white;
 }
 
@@ -99,9 +111,6 @@ body {
     top: 0;
 }
 
-.overlay {
-    position: absolute;
-    z-index: 10;
-    min-height: 100vh;
-    min-width: 20vw;
+.panel-container {
+    height: calc(95vh - 60px);
 }

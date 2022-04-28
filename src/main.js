@@ -9,6 +9,7 @@ import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import "/node_modules/primeflex/primeflex.css";
 import "@/assets/css/main-theme.css";
+import "@/assets/css/main-theme-mobile.css";
 
 import PrimeVue from "primevue/config";
 import Avatar from "primevue/avatar";
@@ -34,6 +35,7 @@ import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
 import Skeleton from "primevue/skeleton";
 import ProgressSpinner from "primevue/progressspinner";
+import ScrollPanel from "primevue/scrollpanel";
 
 const app = createApp(App);
 
@@ -61,6 +63,7 @@ app.component("TagComponent", Tag);
 app.component("Toast", Toast);
 app.component("Skeleton", Skeleton);
 app.component("ProgressSpinner", ProgressSpinner);
+app.component("ScrollPanel", ScrollPanel);
 
 app.directive("badge", BadgeDirective);
 

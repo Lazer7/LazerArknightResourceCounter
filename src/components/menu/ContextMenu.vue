@@ -13,7 +13,9 @@ export default {
             {
               label: "Info",
               icon: "pi pi-heart-fill",
-              command: this.navigateToInfo,
+              command: () => {
+                this.navigateTo("/Info");
+              },
             },
           ],
         },
@@ -23,17 +25,23 @@ export default {
             {
               label: "User Input Table",
               icon: "pi pi-heart-fill",
-              command: this.navigateToHome,
+              command: () => {
+                this.navigateTo("/");
+              },
             },
             {
               label: "Resources Recorded",
               icon: "pi pi-upload",
-              command: this.navigateToUserResources,
+              command: () => {
+                this.navigateTo("/UserResources");
+              },
             },
             {
               label: "Charts",
               icon: "pi pi-upload",
-              command: this.navigateToUserCharts,
+              command: () => {
+                this.navigateTo("/UserCharts");
+              },
             },
           ],
         },
@@ -43,12 +51,16 @@ export default {
             {
               label: "Drop Table",
               icon: "pi pi-heart-fill",
-              command: this.navigateToDropTable,
+              command: () => {
+                this.navigateTo("/DropTable");
+              },
             },
             {
               label: "Resource Charts",
               icon: "pi pi-upload",
-              command: this.navigateToResource,
+              command: () => {
+                this.navigateTo("/Resource");
+              },
             },
           ],
         },
@@ -58,7 +70,9 @@ export default {
             {
               label: "User Preferences",
               icon: "pi pi-heart-fill",
-              command: this.navigateToPreferences,
+              command: () => {
+                this.navigateTo("/Settings");
+              },
             },
           ],
         },
@@ -74,37 +88,34 @@ export default {
       return this.menuOverlay ? "overlay" : "";
     },
   },
-  mounted() {
+  async mounted() {
+    this.reportWindowSize();
+    document
+      .getElementById("main-container")
+      .addEventListener("click", this.closeMenu);
     window.addEventListener("resize", this.reportWindowSize);
   },
   methods: {
-    navigateToHome() {
-      this.$router.push("/");
+    navigateTo(value) {
+      this.$router.push(value);
+      this.checkMobile();
     },
-    navigateToUserCharts() {
-      this.$router.push("/UserCharts");
+    checkMobile() {
+      if (!this.menuOverlay) {
+        this.$store.dispatch("MenuState/hideMenu", window.innerWidth <= 1542);
+      }
     },
-    navigateToUserResources() {
-      this.$router.push("/UserResources");
-    },
-    navigateToInfo() {
-      this.$router.push("/Info");
-    },
-    navigateToDropTable() {
-      this.$router.push("/DropTable");
-    },
-    navigateToResource() {
-      this.$router.push("/Resource");
-    },
-    navigateToPreferences() {
-      this.$router.push("/Settings");
+    closeMenu() {
+      if (window.innerWidth <= 1542) {
+        this.$store.dispatch("MenuState/hideMenu", true);
+      }
     },
     isActive(name) {
       return this.$route.name === name;
     },
     reportWindowSize() {
-      this.$store.dispatch("MenuState/hideMenu", window.innerWidth <= 1490);
-      this.menuOverlay = window.innerWidth <= 1490 && window.innerWidth >= 950;
+      this.$store.dispatch("MenuState/hideMenu", window.innerWidth <= 1542);
+      this.menuOverlay = window.innerWidth <= 1542 && window.innerWidth >= 950;
     },
   },
 };

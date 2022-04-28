@@ -22,7 +22,7 @@
         </div>
       </template>
     </DropDown>
-    <canvas id="resourceStagePieChart"></canvas>
+    <canvas id="resourceStagePieChart" class="canvas"></canvas>
   </div>
 </template>
 
