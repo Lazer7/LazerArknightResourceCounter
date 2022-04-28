@@ -22,4 +22,11 @@
         overflow: hidden;
     }
 
+    .canvas {
+        max-width: 60vw;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
 }
