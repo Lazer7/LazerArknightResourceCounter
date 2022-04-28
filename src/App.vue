@@ -3,10 +3,12 @@
     <Toast />
     <Navbar />
     <div class="grid router">
-      <Menu class="col-12 lg:col-2" />
+      <Menu class="col-12 lg:col-2 overlay" />
       <div id="main-container" class="col main">
         <div :class="mask ? 'container-mask' : ''">
-          <router-view />
+          <ScrollPanel class="panel-container">
+            <router-view />
+          </ScrollPanel>
         </div>
       </div>
     </div>
@@ -25,7 +27,7 @@ export default {
   computed: {
     mask() {
       var menuState = this.$store.getters["MenuState/hidden"];
-      return window.innerWidth <= 1542 && !menuState;
+      return !menuState;
     },
   },
 };

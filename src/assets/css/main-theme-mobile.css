@@ -1,0 +1,25 @@
+@media screen and (max-width: 600px) {
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1542px) {
+    .overlay {
+        position: absolute;
+        z-index: 10;
+        min-height: 100vh;
+        min-width: 20vw;
+        pointer-events: auto;
+    }
+
+    .container-mask {
+        opacity: 0.5;
+        background-color: #20262e;
+        border-color: #20262e;
+        z-index: 9;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+}

@@ -3,16 +3,21 @@
     <MenuBar class="primary">
       <template #start>
         <a @click="hideMenu"><i class="pi pi-bars" /> </a>
-        &nbsp;&nbsp;&nbsp;
-        <img src="@/assets/images/logo.png" alt="Arknights Resource Counter" />
-        &nbsp;Resource Counter
+        <span class="mobile-hidden">
+          &nbsp;&nbsp;&nbsp;
+          <img
+            src="@/assets/images/logo.png"
+            alt="Arknights Resource Counter"
+          />
+          &nbsp;Resource Counter
+        </span>
       </template>
       <template #end>
         <div class="buttons text-right">
           <DropDown v-model="selectedServer" :options="serverList" />
           &nbsp; &nbsp;
           <Button
-            :label="penguinId ? 'Account: ' + penguinId : 'Login'"
+            :label="penguinId ? 'ID: ' + penguinId : 'Login'"
             @click="showLogin(true)"
           />
           <Login v-if="login" @close="showLogin(false)" />
