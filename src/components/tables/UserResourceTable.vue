@@ -72,12 +72,7 @@ export default {
       gold: [],
     };
   },
-  watch: {
-    async userData() {
-      await this.loadQuantity();
-    },
-  },
-  async mounted() {
+  async created() {
     this.resources = await DataService.getResourceData();
     this.loadData();
   },
@@ -113,20 +108,6 @@ export default {
           this.skills.push(resource);
         }
       });
-    },
-    loadQuantity() {
-      Object.keys(this.resources).forEach((data) => {
-        const resource = this.resources[data];
-        var userResource = this.userData.find(
-          (user) => user.itemId === resource.name
-        );
-        if (userResource) {
-          resource.quantity = userResource.quantity;
-        } else {
-          resource.quantity = 0;
-        }
-      });
-      this.loadData();
     },
     getIcon(material) {
       try {

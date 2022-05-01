@@ -41,15 +41,18 @@ export default {
   methods: {
     loadQuantity() {
       Object.keys(this.rows).forEach((data) => {
-        const resource = this.rows[data];
-        var userResource = this.userData.find(
+        var resource = this.rows[data];
+        var userResource = this.userData.filter(
           (user) => user.itemId === resource.name
         );
-        if (userResource) {
-          resource.quantity = userResource.quantity;
-        } else {
-          resource.quantity = 0;
-        }
+        resource.quantity = 0;
+        userResource.forEach((element) => {
+          if (resource.quantity) {
+            resource.quantity += element.quantity;
+          } else {
+            resource.quantity = element.quantity;
+          }
+        });
       });
     },
     getIcon(material) {
