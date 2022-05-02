@@ -19,125 +19,173 @@
           </template>
         </DropDown>
         <br />
+
         <div v-if="validStage">
-          <br />
-          <h3>Normal Drops</h3>
-          <div class="grid">
-            <div
-              v-for="(resource, index) in normalDrop"
-              :key="index"
-              class="col-4 md:col-1"
-            >
-              <div v-if="resource.name">
-                <Avatar
-                  :image="
-                    require(`@/assets/materials/${resource.name.replaceAll(
-                      ' ',
-                      '_'
-                    )}.webp`)
-                  "
-                  v-if="resource.quantity && resource.quantity !== 0"
-                  :key="resource.quantity"
-                  class="mr-2"
-                  size="xlarge"
-                  @click="addResource(resource)"
-                  @contextmenu="subResource($event, resource)"
-                  v-badge="resource.quantity"
-                />
-                <Avatar
-                  :image="
-                    require(`@/assets/materials/${resource.name.replaceAll(
-                      ' ',
-                      '_'
-                    )}.webp`)
-                  "
-                  v-else
-                  :key="resource.quantity"
-                  class="mr-2"
-                  size="xlarge"
-                  @click="addResource(resource)"
-                  @contextmenu="subResource($event, resource)"
-                />
+          <div id="Guaranteed Drops" v-if="guaranteedDrop.length > 0">
+            <h3>Guaranteed Drops</h3>
+            <div class="grid">
+              <div
+                v-for="(resource, index) in guaranteedDrop"
+                :key="index"
+                class="col-4 md:col-1"
+              >
+                <div v-if="resource.name">
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-if="resource.quantity && resource.quantity !== 0"
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                    v-badge="resource.quantity"
+                  />
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-else
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                  />
+                </div>
               </div>
             </div>
           </div>
-          <h3>Special Drops</h3>
-          <div class="grid">
-            <div
-              v-for="(resource, index) in specialDrop"
-              :key="index"
-              class="col-4 md:col-1"
-            >
-              <div v-if="resource.name">
-                <Avatar
-                  :image="
-                    require(`@/assets/materials/${resource.name.replaceAll(
-                      ' ',
-                      '_'
-                    )}.webp`)
-                  "
-                  v-if="resource.quantity && resource.quantity !== 0"
-                  :key="resource.quantity"
-                  class="mr-2"
-                  size="xlarge"
-                  @click="addResource(resource)"
-                  @contextmenu="subResource($event, resource)"
-                  v-badge="resource.quantity"
-                />
-                <Avatar
-                  :image="
-                    require(`@/assets/materials/${resource.name.replaceAll(
-                      ' ',
-                      '_'
-                    )}.webp`)
-                  "
-                  v-else
-                  :key="resource.quantity"
-                  class="mr-2"
-                  size="xlarge"
-                  @click="addResource(resource)"
-                  @contextmenu="subResource($event, resource)"
-                />
+          <div id="Normal Drops" v-if="normalDrop.length > 0">
+            <h3>Normal Drops</h3>
+            <div class="grid">
+              <div
+                v-for="(resource, index) in normalDrop"
+                :key="index"
+                class="col-4 md:col-1"
+              >
+                <div v-if="resource.name">
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-if="resource.quantity && resource.quantity !== 0"
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                    v-badge="resource.quantity"
+                  />
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-else
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                  />
+                </div>
               </div>
             </div>
           </div>
-          <h3>Extra Drops</h3>
-          <div class="grid">
-            <div
-              v-for="(resource, index) in extraDrop"
-              :key="index"
-              class="col-4 md:col-1"
-            >
-              <div v-if="resource.name">
-                <Avatar
-                  :image="
-                    require(`@/assets/materials/${resource.name.replaceAll(
-                      ' ',
-                      '_'
-                    )}.webp`)
-                  "
-                  v-if="resource.quantity && resource.quantity !== 0"
-                  :key="resource.quantity"
-                  class="mr-2"
-                  size="xlarge"
-                  @click="addResource(resource)"
-                  @contextmenu="subResource($event, resource)"
-                  v-badge="resource.quantity"
-                />
-                <Avatar
-                  :image="
-                    require(`@/assets/materials/${resource.name.replaceAll(
-                      ' ',
-                      '_'
-                    )}.webp`)
-                  "
-                  v-else
-                  :key="resource.quantity"
-                  class="mr-2"
-                  size="xlarge"
-                  @click="addResource(resource)"
-                  @contextmenu="subResource($event, resource)"
-                />
+          <div id="Special Drops" v-if="specialDrop.length > 0">
+            <h3>Special Drops</h3>
+            <div class="grid">
+              <div
+                v-for="(resource, index) in specialDrop"
+                :key="index"
+                class="col-4 md:col-1"
+              >
+                <div v-if="resource.name">
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-if="resource.quantity && resource.quantity !== 0"
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                    v-badge="resource.quantity"
+                  />
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-else
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Extra Drops" v-if="extraDrop.length > 0">
+            <h3>Extra Drops</h3>
+            <div class="grid">
+              <div
+                v-for="(resource, index) in extraDrop"
+                :key="index"
+                class="col-4 md:col-1"
+              >
+                <div v-if="resource.name">
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-if="resource.quantity && resource.quantity !== 0"
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                    v-badge="resource.quantity"
+                  />
+                  <Avatar
+                    :image="
+                      require(`@/assets/materials/${resource.name.replaceAll(
+                        ' ',
+                        '_'
+                      )}.webp`)
+                    "
+                    v-else
+                    :key="resource.quantity"
+                    class="mr-2"
+                    size="xlarge"
+                    @click="addResource(resource)"
+                    @contextmenu="subResource($event, resource)"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -192,21 +240,23 @@ export default {
     validStage() {
       return this.stageData.find((stage) => stage.code === this.selectedStage);
     },
+    guaranteedDrop() {
+      return this.validStage.dropInfos.filter((drop) => {
+        return drop.dropType === "GUARANTEED_DROP";
+      });
+    },
     normalDrop() {
-      const stage = this.validStage;
-      return stage.dropInfos.filter((drop) => {
+      return this.validStage.dropInfos.filter((drop) => {
         return drop.dropType === "NORMAL_DROP";
       });
     },
     specialDrop() {
-      const stage = this.validStage;
-      return stage.dropInfos.filter((drop) => {
+      return this.validStage.dropInfos.filter((drop) => {
         return drop.dropType === "SPECIAL_DROP";
       });
     },
     extraDrop() {
-      const stage = this.validStage;
-      return stage.dropInfos.filter((drop) => {
+      return this.validStage.dropInfos.filter((drop) => {
         return drop.dropType === "EXTRA_DROP";
       });
     },
