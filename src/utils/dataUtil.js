@@ -2,44 +2,41 @@ import { PenguinService } from "@/services/penguinService.js";
 import { DataService } from "@/services/dataService.js";
 
 export class DataUtil {
-  static blackList = [
-    "Rhodes Island Supplies",
-    "Rhodes Island Supplies II",
-    "New Year's Lantern",
-    "Thank-You Celebration Supplies",
-    "32-hour Strategic Ration",
-    "Emergency Sanity Sampler",
-  ];
   static async getFormattedMatrixData(server = "US") {
     var data = await PenguinService.getMatrixData(server);
+    var stages = await PenguinService.getStageData(server);
     var resources = await DataService.getResourceData();
-    var stages = await DataService.getStageData();
-    data = data.filter((value) => {
+    var currentTime = new Date().getTime();
+
+    stages = stages.filter((stage) => {
       return (
-        resources[value.itemId] != undefined &&
-        !DataUtil.blackList.includes(resources[value.itemId].name) &&
-        (stages[value.stageId] != undefined ||
-          stages[value.stageId.replace("_perm", "")]) &&
-        value.start >= 1556676000000
+        stage.existence[server].exist &&
+        stage.zoneId !== "gachabox" &&
+        (!stage.existence[server].closeTime ||
+          stage.existence[server].closeTime > currentTime)
       );
     });
+
+    data = data.filter((value) => {
+      return (
+        stages.find((stage) => stage.stageId === value.stageId) !== undefined &&
+        ((value.itemId > 2000 && value.itemId < 3400) || // Check for battle drill and chips
+          value.itemId === 4006 || // Check if it's purchase Cert for Stage AP
+          (value.itemId > 30000 && value.itemId < 32000))
+      );
+    });
+
     data.forEach((value) => {
-      try {
-        value.stageSanity = stages[value.stageId].apCost;
-      } catch (err) {
-        value.stageSanity = stages[value.stageId.replace("_perm", "")].apCost;
-      }
-      try {
-        value.stageId = stages[value.stageId].code;
-      } catch (err) {
-        value.stageId = stages[value.stageId.replace("_perm", "")].code;
-      }
+      const currentStage = stages.find(
+        (stage) => stage.stageId === value.stageId
+      );
+      value.stageSanity = currentStage.apCost;
+      value.stageId = currentStage.code;
       value.itemId = resources[value.itemId].name;
       value.efficiency = parseFloat(
         ((value.quantity / value.times) * 100).toFixed(2)
       );
     });
-
     return data;
   }
 
@@ -74,10 +71,13 @@ export class DataUtil {
   static async getFormattedStageData(server = "US") {
     var resources = await DataService.getResourceData();
     var stages = await PenguinService.getStageData(server);
-
+    var currentTime = new Date().getTime();
     stages = stages.filter((stage) => {
       return (
-        stage.existence[server].exist && !stage.existence[server].closeTime
+        stage.existence[server].exist &&
+        stage.zoneId !== "gachabox" &&
+        (!stage.existence[server].closeTime ||
+          stage.existence[server].closeTime > currentTime)
       );
     });
 
