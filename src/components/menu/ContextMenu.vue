@@ -62,6 +62,13 @@ export default {
                 this.navigateTo("/Resource");
               },
             },
+            {
+              label: "Farm Table",
+              icon: "pi pi-upload",
+              command: () => {
+                this.navigateTo("/Efficiency");
+              },
+            },
           ],
         },
         {

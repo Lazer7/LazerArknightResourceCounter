@@ -73,6 +73,18 @@ export default {
             },
           ],
         },
+        options: {
+          plugins: {
+            legend: {
+              labels: {
+                color: "white",
+                font: {
+                  size: 14,
+                },
+              },
+            },
+          },
+        },
       });
     },
     getIcon(material) {

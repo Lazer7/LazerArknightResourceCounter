@@ -33,9 +33,12 @@ export class DataUtil {
       value.stageSanity = currentStage.apCost;
       value.stageId = currentStage.code;
       value.itemId = resources[value.itemId].name;
-      value.efficiency = parseFloat(
-        ((value.quantity / value.times) * 100).toFixed(2)
-      );
+      value.efficiency = parseFloat((value.quantity / value.times) * 100);
+      if (value.quantity > 0) {
+        value.sanityPerItem = parseFloat(
+          (currentStage.apCost * value.times) / value.quantity
+        );
+      }
     });
     return data;
   }
@@ -62,6 +65,11 @@ export class DataUtil {
         value.itemId = resources[value.itemId].name;
         value.efficiency = parseFloat(
           ((value.quantity / value.times) * 100).toFixed(2)
+        );
+      }
+      if (value.quantity > 0) {
+        value.sanityPerItem = Math.round(
+          (value.stageSanity * value.times) / value.quantity
         );
       }
     });
