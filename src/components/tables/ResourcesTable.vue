@@ -68,15 +68,17 @@
           </template>
         </ColumnComponent>
         <ColumnComponent
-          field="stageSanity"
-          header="Sanity per Run"
+          field="sanityPerItem"
+          header="Sanity per Item"
           :sortable="true"
           style="min-width: 12rem"
         >
           <template #body="slotProps">
             <span>
               {{
-                slotProps.data.stageSanity >= 0 ? slotProps.data.stageSanity : 0
+                slotProps.data.sanityPerItem >= 0
+                  ? slotProps.data.sanityPerItem
+                  : "-"
               }}
             </span>
           </template>
